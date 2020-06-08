@@ -1,2 +1,2 @@
 #!/bin/bash
-find ./* -name ".*" -empty | ls -l
+find ./* -empty -printf "%f\n" | ls -l
