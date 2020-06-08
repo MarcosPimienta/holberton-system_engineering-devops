@@ -1,2 +1,2 @@
 #!/bin/bash
-find ./* -name ".*" -empty -ls
+find ./* -name ".*" -empty | ls -l
