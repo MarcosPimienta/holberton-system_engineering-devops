@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #this will hack th s%^&*% out of people
 
 h="holbertonschool"
