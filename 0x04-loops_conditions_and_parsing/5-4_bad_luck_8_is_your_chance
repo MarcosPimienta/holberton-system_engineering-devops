@@ -7,12 +7,12 @@ if [[ $i -eq 4 ]]
 then
 echo $"bad luck"
 ((i++))
-fi
-if [[ $i -eq 8 ]]
+elif [[ $i -eq 8 ]]
 then
 echo $"good luck"
 ((i++))
-fi
+else
 echo $"Holberton School"
 ((i++))
+fi
 done
