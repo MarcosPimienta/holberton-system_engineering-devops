@@ -1,0 +1,2 @@
+##General
+.image folder
