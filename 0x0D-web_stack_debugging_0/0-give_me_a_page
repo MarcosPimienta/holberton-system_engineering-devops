@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Docker NICE TECH
+sudo service apache2 start
