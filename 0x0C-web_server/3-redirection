@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Redirects
 sudo apt -y update
-sudo apt -y upgrade
 sudo apt-get -y install nginx
 sudo ufw allow "Nginx HTTP"
 sudo chmod a+w /var/www/html/index.nginx-debian.html
