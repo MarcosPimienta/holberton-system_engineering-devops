@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Configre Nginx on port 8080.
+pkill -f apache
+sudo sed -i '$ i user nginx;' /etc/nginx/nginx.conf
+sudo sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
+sudo sed -i 's/80/8080/' /etc/nginx/sites-available/default
+sudo service nginx start
