@@ -5,18 +5,22 @@ import requests
 from sys import argv
 
 if __name__ == '__main__':
-    users = requests.get('https://jsonplaceholder.typicode.com/users',
-                         params={"id": argv[1]})
-    todos = requests.get('https://jsonplaceholder.typicode.com/todos',
-                         params={"userId": argv[1]})
-    user_dict = users.json()
-    todo_list = todos.json()
+    userId = argv[1]
+    users = requests.get("https://jsonplaceholder.typicode.com/users/{}"
+                        .format(userId))
+    todos_list = requests.get('https://jsonplaceholder.typicode.com/todos')
+    todos_list = todos_list.json()
 
-    for i in todo_list:
-        i.pop('userId')
-        i.pop('id')
-        i['task'] = i.pop('title')
-        i['username'] = user_dict[0].get('name')
-    megaDict = {argv[1]: todo_list}
-    with open('{:s}.json'.format(str(argv[1])), mode='w') as task_file:
-        json.dump(megaDict, task_file)
+    newDict = {}
+    newList = []
+
+    for task in todos_list:
+        if task.get('userId') == int(userId):
+            taskDict = {"task": task.get('title'),
+                        "completed": task.get('completed'),
+                        "username": users.json().get('username')}
+            newList.append(taskDict)
+    newDict[userId] = newList
+
+    with open('{:s}.json'.format(userId), mode='w') as task_file:
+        json.dump(newDict, task_file)
