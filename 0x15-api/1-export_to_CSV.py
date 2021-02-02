@@ -5,10 +5,10 @@ from sys import argv
 from requests import get
 
 if __name__ == '__main__':
-    user = get('https://jsonplaceholder.typicode.com/users/{:s}'.format(
-        argv[1]))
-    todo = get('http://jsonplaceholder.typicode.com/todos?userId={:s}'.format(
-        argv[1]))
+    users = requests.get('https://jsonplaceholder.typicode.com/users',
+                         params={"id": argv[1]})
+    todos = requests.get('https://jsonplaceholder.typicode.com/todos',
+                         params={"userId": argv[1]})
     user_dict = user.json()
     todo_list = todo.json()
 
