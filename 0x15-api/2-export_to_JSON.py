@@ -17,6 +17,6 @@ if __name__ == '__main__':
         i.pop('id')
         i['task'] = i.pop('title')
         i['username'] = user_dict[0].get('name')
-    megaDict = {str(argv[1]): todo_list}
+    megaDict = {argv[1]: todo_list}
     with open('{:s}.json'.format(str(argv[1])), mode='w') as task_file:
         json.dump(megaDict, task_file)
