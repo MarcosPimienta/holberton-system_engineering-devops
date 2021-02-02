@@ -4,7 +4,6 @@ import json
 import requests
 
 
-
 if __name__ == "__main__":
 
     users = requests.get("https://jsonplaceholder.typicode.com/users")
